@@ -12,7 +12,7 @@ import org.junit.Test;
 public class RequestTest {
     @Test
     public void testCon() {
-        RemoteResponse remoteResponse = TokenUtil.sendTokenVerification("17228C4A5F834EE813969003119qq");
+        RemoteResponse remoteResponse = cn.leetechweb.singlelogin.util.TokenUtil.sendTokenVerification("17228C4A5F834EE813969003119qq");
         System.out.println(remoteResponse);
     }
 }
