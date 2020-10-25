@@ -4,9 +4,9 @@ import cn.leetechweb.singlelogin.dao.AddressDao;
 import cn.leetechweb.singlelogin.dao.impl.InMemoryAddressDaoImpl;
 import cn.leetechweb.singlelogin.domain.Address;
 import cn.leetechweb.singlelogin.domain.AjaxResult;
-import cn.leetechweb.singlelogin.domain.RemoteResponse;
-import cn.leetechweb.singlelogin.util.IOUtil;
-import cn.leetechweb.singlelogin.util.TokenUtil;
+import cn.leetechweb.tokenmanager.domain.RemoteResponse;
+import cn.leetechweb.tokenmanager.util.IOUtil;
+import cn.leetechweb.tokenmanager.util.TokenUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,5 +45,10 @@ public class AddressController extends HttpServlet {
                 IOUtil.writeObjectToOutputStream(resp, AjaxResult.fail("获取信息失败：没有您的地址信息"));
             }
         }
+    }
+
+    @Override
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        IOUtil.writeObjectToOutputStream(resp, AjaxResult.success(null));
     }
 }

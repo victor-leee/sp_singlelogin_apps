@@ -15,17 +15,17 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>cn.leetechweb</groupId>
-      <artifactId>singlelogin</artifactId>
+      <artifactId>tokenmanager</artifactId>
       <version>0.0.1</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/lib/singlelogin.jar</systemPath>
+      <systemPath>${project.basedir}/lib/token_manager.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -74,6 +74,19 @@
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
           <version>3.2.2</version>
+          <configuration>
+            <!--打包时，包含该jar包-->
+            <webResources>
+              <resource>
+                <directory>${project.basedir}/lib</directory>
+                <targetPath>WEB-INF/lib</targetPath>
+                <filtering>false</filtering>
+                <includes>
+                  <include>**/*.jar</include>
+                </includes>
+              </resource>
+            </webResources>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -85,14 +98,17 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <resources>
-      <resource>
-        <directory>lib</directory>
-        <targetPath>/BOOT-INF/lib/</targetPath>
-        <includes>
-          <include>**/*.jar</include>
-        </includes>
-      </resource>
-    </resources>
+<!--    <resources>-->
+<!--      <resource>-->
+<!--        <directory>lib</directory>-->
+<!--        <targetPath>/BOOT-INF/lib/</targetPath>-->
+<!--        <includes>-->
+<!--          <include>**/*.jar</include>-->
+<!--        </includes>-->
+<!--      </resource>-->
+<!--      <resource>-->
+<!--        <directory>src/main/resources</directory>-->
+<!--      </resource>-->
+<!--    </resources>-->
   </build>
 </project>

@@ -54,5 +54,11 @@ public class InMemoryAddressDaoImpl implements AddressDao {
         unkAdd.setCity("成都市");
         unkAdd.setDistrict("哈哈区");
         addressMap.put("哈哈", unkAdd);
+        //三号用户
+        Address fzb = new Address();
+        fzb.setProvince("重庆市");
+        fzb.setCity("重庆市");
+        fzb.setDistrict("沙坪坝区");
+        addressMap.put("fangzhibin", fzb);
     }
 }
